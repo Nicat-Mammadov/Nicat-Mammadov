@@ -21,4 +21,12 @@ jobs:
         with:
           github_user_name: Nicat-Mammadov    # <-- senin GitHub kullanıcı adın
           outputs: |
-            dist/s
+            dist/snake.svg
+            dist/snake-dark.svg?palette=github-dark
+
+      - name: Push generated files to output branch
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: output
+          force: true
