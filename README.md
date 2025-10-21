@@ -22,4 +22,7 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=nicat-mammadov&show_icons=true&locale=en" alt="nicat-mammadov" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=nicat-mammadov&" alt="nicat-mammadov" /></p>
-![GitHub Snake Dark](https://raw.githubusercontent.com/Nicat-Mammadov/Nicat-Mammadov/output/snake-dark.svg#gh-dark-mode-only)
+
+![GitHub Snake Light](https://raw.githubusercontent.com/Nicat-Mammadov/Nicat-Mammadov/output/github-contribution-grid-snake.svg#gh-light-mode-only)
+![GitHub Snake Dark](https://raw.githubusercontent.com/Nicat-Mammadov/Nicat-Mammadov/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
+
