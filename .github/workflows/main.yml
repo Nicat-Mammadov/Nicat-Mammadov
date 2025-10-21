@@ -1,0 +1,36 @@
+# GitHub Action: Generate a contribution snake graph animation 🐍
+
+name: Generate Snake
+
+on:
+  schedule:
+    # Her 6 saatte bir çalışsın
+    - cron: "0 */6 * * *"
+  workflow_dispatch:  # Manuel olarak da çalıştırılabilir
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Depoyu klonla
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Yılan animasyonunu oluştur
+      - name: Generate Snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: Nicat-Mammadov
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+
+      # 3️⃣ Çıktıları "output" branch'ine gönder
+      - name: Push to output branch
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
