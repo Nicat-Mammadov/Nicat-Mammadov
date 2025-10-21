@@ -1,4 +1,4 @@
-name: Generate Snake
+name: Generate Red Snake
 
 on:
   schedule:
@@ -18,13 +18,19 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Generate Snake
+      - name: Clean old snake files
+        run: |
+          rm -rf dist
+          mkdir -p dist
+          echo "🧹 Old SVG files removed."
+
+      - name: Generate Red Snake
         uses: Platane/snk@v3
         with:
           github_user_name: Nicat-Mammadov
           outputs: |
-            dist/github-contribution-grid-snake.svg?palette=rose-pine
-            dist/github-contribution-grid-snake-dark.svg?palette=rose-pine
+            dist/github-contribution-grid-snake-red.svg?palette=rose-pine
+            dist/github-contribution-grid-snake-red-dark.svg?palette=rose-pine
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3
