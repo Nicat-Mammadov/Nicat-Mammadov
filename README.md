@@ -22,3 +22,4 @@
 <p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=nicat-mammadov&show_icons=true&locale=en" alt="nicat-mammadov" /></p>
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=nicat-mammadov&" alt="nicat-mammadov" /></p>
+![snake gif](https://github.com/Nicat-Mammadov/Nicat-Mammadov/blob/output/github-contribution-grid-snake.gif)
