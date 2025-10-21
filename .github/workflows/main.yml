@@ -2,11 +2,8 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # her gün gece 00:00'da çalışır
-  workflow_dispatch:       # manuel çalıştırma seçeneği
-
-permissions:
-  contents: write
+    - cron: "0 0 * * *" # her gün gece 12'de çalışsın
+  workflow_dispatch:
 
 jobs:
   build:
@@ -19,10 +16,10 @@ jobs:
       - name: Generate Snake Animation
         uses: Platane/snk@v3
         with:
-          github_user_name: Nicat-Mammadov    # <-- senin GitHub kullanıcı adın
+          github_user_name: Nicat-Mammadov
           outputs: |
-            dist/snake.svg
-            dist/snake-dark.svg?palette=github-dark
+            ./snake.svg
+            ./snake-dark.svg?palette=github-dark
 
       - name: Push generated files to output branch
         uses: ad-m/github-push-action@master
