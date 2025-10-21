@@ -1,9 +1,9 @@
 name: Generate Snake
 
 on:
-  schedule: # her gün çalışması için
-    - cron: "0 0 * * *"
-  workflow_dispatch: # elle çalıştırma seçeneği
+  schedule:
+    - cron: "0 0 * * *"  # Her gün gece 00:00'da çalışır
+  workflow_dispatch:       # Manuel çalıştırma için
 
 jobs:
   build:
@@ -16,7 +16,8 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: Nicat-Mammadov
-          outputs: dist/snake.svg
+          outputs: |
+            dist/snake.svg
 
       - name: Push generated snake.svg to output branch
         uses: ad-m/github-push-action@master
