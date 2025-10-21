@@ -29,8 +29,8 @@ jobs:
         with:
           github_user_name: Nicat-Mammadov
           outputs: |
-            dist/github-contribution-grid-snake-red.svg?palette=rose-pine
-            dist/github-contribution-grid-snake-red-dark.svg?palette=rose-pine
+            dist/github-contribution-grid-snake-red.svg?theme_name=rose-pine
+            dist/github-contribution-grid-snake-red-dark.svg?theme_name=rose-pine
 
       - name: Push to output branch
         uses: crazy-max/ghaction-github-pages@v3
