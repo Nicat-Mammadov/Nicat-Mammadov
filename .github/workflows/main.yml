@@ -1,36 +1,42 @@
-# GitHub Action: Generate a contribution snake graph animation 🐍
-
 name: Generate Snake
 
 on:
   schedule:
-    # Her 6 saatte bir çalışsın
     - cron: "0 */6 * * *"
-  workflow_dispatch:  # Manuel olarak da çalıştırılabilir
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Depoyu klonla
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Yılan animasyonunu oluştur
+      - name: Setup Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Generate Snake
         uses: Platane/snk@v3
         with:
           github_user_name: Nicat-Mammadov
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+            ./github-contribution-grid-snake.svg
+            ./github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      # 3️⃣ Çıktıları "output" branch'ine gönder
-      - name: Push to output branch
-        uses: crazy-max/ghaction-github-pages@v3
-        with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and Push snake files to output branch
+        run: |
+          # Output branch'i oluştur
+          git checkout --orphan output
+          git reset --hard
+          git clean -fdx
+
+          # SVG dosyalarını kopyala
+          cp ./github-contribution-grid-snake*.svg ./
+
+          # Commit ve push
+          git add github-contribution-grid-snake*.svg
+          git commit -m "Generate contribution snake 🐍"
+          git push -f origin output
